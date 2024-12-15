@@ -1,0 +1,103 @@
+const carData = [
+    {
+      id: 1,
+      name: "Tesla Model S",
+      brand: "Tesla",
+      price: 89999,
+      year: 2023,
+      mileage: "0 miles",
+      condition: "New",
+      fuelType: "Electric",
+      bodyType: "Sedan",
+      transmission: "Automatic",
+      color: "White",
+      images: [
+        "https://example.com/images/tesla-model-s-front.jpg",
+        "https://example.com/images/tesla-model-s-interior.jpg",
+      ],
+      features: ["Autopilot", "Glass Roof", "Fast Charging"],
+      location: "California, USA",
+      description: "A premium electric sedan with cutting-edge technology and excellent performance."
+    },
+    {
+      id: 2,
+      name: "Toyota Corolla",
+      brand: "Toyota",
+      price: 25000,
+      year: 2022,
+      mileage: "5,000 miles",
+      condition: "Used",
+      fuelType: "Gasoline",
+      bodyType: "Sedan",
+      transmission: "Automatic",
+      color: "Blue",
+      images: [
+        "https://example.com/images/toyota-corolla-front.jpg",
+        "https://example.com/images/toyota-corolla-interior.jpg",
+      ],
+      features: ["Backup Camera", "Bluetooth Connectivity", "Cruise Control"],
+      location: "Texas, USA",
+      description: "A reliable sedan with excellent fuel efficiency and comfort."
+    },
+    {
+      id: 3,
+      name: "Ford F-150",
+      brand: "Ford",
+      price: 45000,
+      year: 2021,
+      mileage: "15,000 miles",
+      condition: "Used",
+      fuelType: "Gasoline",
+      bodyType: "Truck",
+      transmission: "Automatic",
+      color: "Black",
+      images: [
+        "https://example.com/images/ford-f150-front.jpg",
+        "https://example.com/images/ford-f150-interior.jpg",
+      ],
+      features: ["4WD", "Tow Package", "Navigation System"],
+      location: "Florida, USA",
+      description: "A powerful and versatile truck, perfect for work and adventure."
+    },
+    {
+      id: 4,
+      name: "Honda Civic",
+      brand: "Honda",
+      price: 22000,
+      year: 2022,
+      mileage: "8,000 miles",
+      condition: "Used",
+      fuelType: "Gasoline",
+      bodyType: "Sedan",
+      transmission: "Manual",
+      color: "Gray",
+      images: [
+        "https://example.com/images/honda-civic-front.jpg",
+        "https://example.com/images/honda-civic-interior.jpg",
+      ],
+      features: ["Apple CarPlay", "Heated Seats", "Keyless Entry"],
+      location: "New York, USA",
+      description: "A sporty and efficient sedan with advanced tech features."
+    },
+    {
+      id: 5,
+      name: "BMW X5",
+      brand: "BMW",
+      price: 75000,
+      year: 2023,
+      mileage: "0 miles",
+      condition: "New",
+      fuelType: "Gasoline",
+      bodyType: "SUV",
+      transmission: "Automatic",
+      color: "Black",
+      images: [
+        "https://example.com/images/bmw-x5-front.jpg",
+        "https://example.com/images/bmw-x5-interior.jpg",
+      ],
+      features: ["All-Wheel Drive", "Luxury Interior", "Panoramic Sunroof"],
+      location: "Illinois, USA",
+      description: "A luxurious SUV with outstanding performance and comfort."
+    }
+  ];
+  module.exports = carData
