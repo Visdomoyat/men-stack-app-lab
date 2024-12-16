@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= car.name %></title>
 </head>
+<style>
+    h1 {
+background-color: rgb(239, 239, 247);
+width: 100%; 
+padding: 30px; 
+margin: 0;
+
+    }
+
+</style>
 <body>
     <center>
     <h1><a href="/">visdomMotors</a></h1>
@@ -15,6 +25,7 @@
     <form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete <%= car.name %></button>
     </form>
+    <a href="/cars/<%= car._id %>/edit">Edit <%= car.name %></a><br/>
     <a href="/cars">Back to Cars</a>
     </center>
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Car</title>
+    <title>Document</title>
 </head>
 <style>
     h1 {
@@ -16,8 +16,13 @@ margin: 0;
 
 </style>
 <body>
-    <h1> create a New Car!</h1>
-    <form action="/cars" method="POST">
+    <center>
+    <h1>
+        <a href="/">visdomMotors</a>  
+      </h1>
+      </center>
+      <h2>Edit <%= car.name %></h2>
+      <form action="/cars/<%= car._id%>?_method=PUT" method="POST">
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" />
 
@@ -26,7 +31,7 @@ margin: 0;
         <label for="image">Image:</label>
         <input type="text" name="image" id="image">
 
-        <button type="submit">Add Car</button>
+        <button type="submit">Update Cars</button>
 
     </form>
     <a href="/cars">Back to Cars</a>

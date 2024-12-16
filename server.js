@@ -42,6 +42,7 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
+// create cars
 app.get('/cars/new', (req, res) => {
     res.render('cars/new');
 })
@@ -58,10 +59,11 @@ res.render('cars/index',{
     cars: allCars})
 } catch(error) {
     console.error(error.message)
-    res.staus(500).send('internal server error')
+    res.status(500).send('internal server error')
 }
 })
 
+//show cars
 app.get('/cars/:id', async (req, res) => {
 try{ 
     const foundCar = await Car.findById(req.params.id)
@@ -75,10 +77,30 @@ res.render('cars/show', {
 
 });
 
+// Delete cars
 app.delete('/cars/:id', async (req, res) => {
     await Car.findByIdAndDelete(req.params.id);
     res.redirect('/cars')
 })
+
+// update cars === edit route
+
+app.get('/cars/:id/edit', async (req, res) => {
+    try {
+        const foundCar = await Car.findById(req.params.id);
+        res.render('cars/edit', {
+            car: foundCar,
+        });
+        
+    } catch(error) {
+        console.error(error.message)
+        res.status(500).send(';internal server error')
+    }
+    
+})
+
+
+
 
 //**********************************
 //             Listener
