@@ -23,11 +23,13 @@ margin: 0;
     </h1>
     <ul>
         <% cars.forEach(car => { %>
-         <li><%= car.name %></li>
-         <li><%= car.description %></li>
+         <li><a href="/cars/<%= car._id %>"><%= car.name %></a> <br>
+         <%= car.description %></li>
         <% }); %>
         
     </ul>
+    <a href="/cars/new">Add new cars</a>
+    
 
 </center>
 </body>

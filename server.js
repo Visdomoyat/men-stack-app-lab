@@ -16,7 +16,9 @@ mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on('connected', () => {
     console.log(`connected to MongoDB ${mongoose.connection.name}.`);
 })
-
+//**********************************
+//           Database
+//***********************************
 // Import the Car model
 const Car = require("./models/car.js")
 
@@ -41,7 +43,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/cars/new', (req, res) => {
-    res.render('cars/new.ejs');
+    res.render('cars/new');
 })
 
 app.post('/cars', async (req, res) => {
@@ -50,14 +52,33 @@ app.post('/cars', async (req, res) => {
 })
 
 app.get('/cars', async (req, res) => {
-const allCars = await Car.find();
-console.log(allCars);
-res.render('cars/index.ejs',
-    {cars: allCars}
-);
-
+    try {
+const allCars = await Car.find({});
+res.render('cars/index',{
+    cars: allCars})
+} catch(error) {
+    console.error(error.message)
+    res.staus(500).send('internal server error')
+}
 })
 
+app.get('/cars/:id', async (req, res) => {
+try{ 
+    const foundCar = await Car.findById(req.params.id)
+res.render('cars/show', {
+    car: foundCar
+})
+} catch(error) {
+    console.error(error.message)
+    res.status(500).send(';internal server error')
+}
+
+});
+
+app.delete('/cars/:id', async (req, res) => {
+    await Car.findByIdAndDelete(req.params.id);
+    res.redirect('/cars')
+})
 
 //**********************************
 //             Listener
