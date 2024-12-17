@@ -24,14 +24,14 @@ margin: 0;
       <h2>Edit <%= car.name %></h2>
       <form action="/cars/<%= car._id%>?_method=PUT" method="POST">
         <label for="name">Name:</label>
-        <input type="text" name="name" id="name" />
+        <input type="text" name="name" value="<%= car.name %>" />
 
         <label for="description">Description:</label>
-        <input type="text" name="description" id="descirption" />
+        <input type="text" name="description" value="<%= car.descirption %> " />
         <label for="image">Image:</label>
-        <input type="text" name="image" id="image">
+        <input type="text" name="image" value=" <%= car.image %>">
 
-        <button type="submit">Update Cars</button>
+        <button type="submit">Update Car</button>
 
     </form>
     <a href="/cars">Back to Cars</a>
