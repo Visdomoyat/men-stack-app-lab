@@ -42,67 +42,12 @@ app.get('/', (req, res) => {
     res.render('home')
 })
 
-// create cars
-app.get('/cars/new', (req, res) => {
-    res.render('cars/new');
-})
+const carRoutes = require('./Routers/carRoutes.js')
+app.use('/', carRoutes )
 
-app.post('/cars', async (req, res) => {
-    await Car.create(req.body);
-    res.redirect('/cars'); // redirect to index cars
-})
 
-app.get('/cars', async (req, res) => {
-    try {
-const allCars = await Car.find({});
-res.render('cars/index',{
-    cars: allCars})
-} catch(error) {
-    console.error(error.message)
-    res.status(500).send('internal server error')
-}
-})
 
-//show cars
-app.get('/cars/:id', async (req, res) => {
-try{ 
-    const foundCar = await Car.findById(req.params.id)
-res.render('cars/show', {
-    car: foundCar
-})
-} catch(error) {
-    console.error(error.message)
-    res.status(500).send(';internal server error')
-}
 
-});
-
-// Delete cars
-app.delete('/cars/:id', async (req, res) => {
-    await Car.findByIdAndDelete(req.params.id);
-    res.redirect('/cars')
-})
-
-// update cars === edit route
-
-app.get('/cars/:id/edit', async (req, res) => {
-    try {
-        const foundCar = await Car.findById(req.params.id);
-        res.render('cars/edit', {
-            car: foundCar,
-        });
-        
-    } catch(error) {
-        console.error(error.message)
-        res.status(500).send(';internal server error')
-    }
-    
-})
-
-app.put('/cars/:id', async (req, res) => {
-    await Car.findByIdAndUpdate(req.params.id, req.body);
-    res.redirect(`/cars/${req.params.id}`)
-})
 
 
 //**********************************
