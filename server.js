@@ -38,16 +38,13 @@ app.use(express.static(path.join(__dirname, 'public')))
 //              ROUTES {I.N.D.U.C.E}
 //***********************************
 //index
-app.get('/', (req, res) => {
-    res.render('home')
-})
 
-const carRoutes = require('./Routers/carRoutes.js')
+const carRoutes = require('./Routers/carRoutes')
 app.use('/', carRoutes )
 
+app.use('/', require('./Routers/home'))
 
-
-
+app.use('/', require('./Routers/seed'))
 
 
 //**********************************
